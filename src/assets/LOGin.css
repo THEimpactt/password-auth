@@ -1,0 +1,156 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: radial-gradient(circle at top, #141826, #0c0f16);
+}
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #d7e6d8;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  vertical-align: middle;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 16px;
+}
+.container h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #e7e9f1;
+  letter-spacing: 0.4px;
+  opacity: 0;
+  animation: fadeDown 0.6s ease forwards;
+}
+.main {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #161b2c, #111526);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  animation: cardReveal 0.7s ease forwards;
+  animation-delay: 0.1s;
+}
+.real-pt {
+  padding: 38px 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.real-pt h2 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.real-pt label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: #a2a8bd;
+  transition: color 0.25s ease;
+}
+.real-pt label:focus-within {
+  color: #7b91ff;
+}
+.real-pt input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #2f3650;
+  padding: 10px 2px;
+  font-size: 14px;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+
+.real-pt input:focus {
+  border-color: #7b91ff;
+}
+.real-pt button {
+  margin-top: 12px;
+  padding: 13px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6f87ff, #8fa1ff);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.real-pt button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(123, 145, 255, 0.45);
+}
+.real-pt button:active {
+  transform: translateY(0);
+}
+.real-pt a {
+  margin-top: 4px;
+  text-align: center;
+  font-size: 13px;
+  color: #9aa6ff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.real-pt a:hover {
+  color: #c1c9ff;
+}
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 24px;
+  }
+  .real-pt {
+    padding: 28px 22px;
+  }
+  .real-pt h2 {
+    font-size: 22px;
+  }
+}
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
